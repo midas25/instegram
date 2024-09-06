@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container, .container {
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+.login-box {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.logo {
+    width: 175px;
+    margin-bottom: 30px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+button:hover {
+    background-color: #3578e5;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.divider .or {
+    padding: 0 10px;
+    color: #8e8e8e;
+    font-weight: bold;
+}
+
+.login-with-facebook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    color: #385185;
+    font-weight: bold;
+}
+
+.login-with-facebook img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.login-with-facebook a {
+    color: #385185;
+    text-decoration: none;
+}
+
+.forgot-password {
+    color: #00376b;
+    font-size: 12px;
+}
+
+.signup-box {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 20px;
+    text-align: center;
+}
+
+.signup-box a {
+    color: #3897f0;
+    font-weight: bold;
+    text-decoration: none;
+}
