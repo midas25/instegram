@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 // MongoDB 연결
-mongoose.connect('mongodb://localhost:27017/instagram_login', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
