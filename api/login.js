@@ -1,36 +1,31 @@
-const mongoose = require('mongoose');
+// api/login.js
+import { MongoClient } from 'mongodb';
 
-const userSchema = new mongoose.Schema({
-    username: String,
-    password: String
+const client = new MongoClient(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-const User = mongoose.models.User || mongoose.model('User', userSchema);
-
-const connectDb = async () => {
-    if (mongoose.connection.readyState === 0) {
-        await mongoose.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-    }
-};
-
 export default async function handler(req, res) {
-    await connectDb();
+  if (req.method === 'POST') {
+    const { username, password } = req.body;
 
-    if (req.method === 'POST') {
-        const { username, password } = req.body;
-        const newUser = new User({ username, password });
+    try {
+      await client.connect();
+      const db = client.db('your-database-name');
+      const collection = db.collection('users');
 
-        try {
-            await newUser.save();
-            res.status(200).send('User saved successfully!');
-        } catch (err) {
-            res.status(500).send('Error saving user');
-        }
-    } else {
-        res.status(405).json({ error: 'Method not allowed' });
+      const newUser = { username, password };
+      await collection.insertOne(newUser);
+
+      res.status(200).send('User saved successfully!');
+    } catch (error) {
+      res.status(500).send('Error saving user');
+    } finally {
+      await client.close();
     }
+  } else {
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
 }
-ㅅ
