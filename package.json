@@ -1,17 +1,34 @@
 {
-  "name": "browserphishing",
+  "name": "your-project-name",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "A project for Vercel deployment with Express and MongoDB.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "vercel dev", 
+    "build": "echo 'No build step needed'", 
+    "start": "vercel dev" 
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.19.2",
-    "mongoose": "^8.6.1"
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0",
+    "body-parser": "^1.19.0",
+    "vercel": "^24.0.0" 
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "14.x" 
+  },
+  "vercel": {
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ]
   }
 }
